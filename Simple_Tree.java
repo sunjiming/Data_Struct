@@ -119,7 +119,6 @@ public class Simple_Tree<Key extends Comparable<Key>,Value> {
 		}
 		return current;
 	}
-	
 	/**
 	 * 删除节点：这个是最麻烦的，因为少了一个节点，因此需要稍微的重组一下二叉树结构。
 	 * 
@@ -278,25 +277,15 @@ public class Simple_Tree<Key extends Comparable<Key>,Value> {
 			return;
 		int cmplo = lo.compareTo(x.key);
 		int cmphi = hi.compareTo(x.key);
-		/**
-		 * 进入左子树
-		 * */
 		if(cmplo<0)
-				Keys(x.lift,queue,lo,hi);
+			Keys(x.lift,queue,lo,hi);//进入左子树
 		if (cmplo <= 0 && cmphi >= 0)
-			queue.add(x.key);
-		/**
-		 *进入右子树
-		 * */
+			queue.add(x.key);//只添加左孩子节点和本身，右孩子节点会随着遍历在变成当前节点而被输出
 		if (cmphi > 0)
-			Keys(x.right, queue, lo, hi);
+			Keys(x.right, queue, lo, hi);//进入右子树
 	}
-	/**
-	 * 工具类：
-	 *  size():返回指定节点的节点数目
-	 *  max():获取最大的node
-	 *  min():获取最小的node
-	 * */
+	
+	//返回指定节点的节点数目
 	private int size(Node node){
 		if(node == null){
 			return 0;
