@@ -119,6 +119,7 @@ public class Simple_Tree<Key extends Comparable<Key>,Value> {
 		}
 		return current;
 	}
+	
 	/**
 	 * 删除节点：这个是最麻烦的，因为少了一个节点，因此需要稍微的重组一下二叉树结构。
 	 * 
